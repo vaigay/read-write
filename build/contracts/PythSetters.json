@@ -1,0 +1,2919 @@
+{
+  "contractName": "PythSetters",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/pyth/PythSetters.sol\":\"PythSetters\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/libraries/external/BytesLib.sol\":{\"keccak256\":\"0xf75784dfc94ea43668eb195d5690a1dde1b6eda62017e73a3899721583821d29\",\"license\":\"Unlicense\",\"urls\":[\"bzz-raw://ca16cef8b94f3ac75d376489a668618f6c4595a906b939d674a883f4bf426014\",\"dweb:/ipfs/QmceGU7qhyFLSejaj6i4dEtMzXDCSF3aYDtW1UeKjXQaRn\"]},\"project:/contracts/pyth/PythSetters.sol\":{\"keccak256\":\"0x811515b444c9a4edd82e526b5fa976874bc7fbc7373c1381d45e5c493e3aeaae\",\"license\":\"Apache 2\",\"urls\":[\"bzz-raw://6166735b315b9ccaddcb804df000f46d1a8c1691baba07da228402081d87b8e2\",\"dweb:/ipfs/QmVg5mdszt8DaXR1LAoE84hhqFnn7rPEnXU2Y1FjQLbfyb\"]},\"project:/contracts/pyth/PythState.sol\":{\"keccak256\":\"0x683bc6c10c6697d2a4a572911106985e8922a888b615e622e6f181299e68f85e\",\"license\":\"Apache 2\",\"urls\":[\"bzz-raw://58fa9291f5b5f241e2458794c311f75aae862cf41277d0c8d6631bad1e0322b5\",\"dweb:/ipfs/QmVPNoPcV7x2PW6pYYzShkjLyJ2ru53B9w2oPkpyKyyEKV\"]},\"project:/contracts/pyth/PythStructs.sol\":{\"keccak256\":\"0x96a84f516e7fa91cbeac32843549cf93b6a0c58308f27023710589107779016f\",\"license\":\"Apache 2\",\"urls\":[\"bzz-raw://37d621a6202dc99a5b85d59e0c6ea4d4b34250e745aeb9a359cfd2a668331a63\",\"dweb:/ipfs/QmXqBgXhbHuHzBF2pdVmznsadpCfDDFtytUKnXJQvBPPJU\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220c1ff6e7a9d5e1331cb64866293a9b52b58e8b4894e2f6cbd6a9f5afe5e55a84864736f6c63430008040033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220c1ff6e7a9d5e1331cb64866293a9b52b58e8b4894e2f6cbd6a9f5afe5e55a84864736f6c63430008040033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "115:1233:83:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "115:1233:83:-:0;;;;;",
+  "source": "// contracts/Setters.sol\n// SPDX-License-Identifier: Apache 2\n\npragma solidity ^0.8.0;\n\nimport \"./PythState.sol\";\n\ncontract PythSetters is PythState {\n    function setInitialized(address implementatiom) internal {\n        _state.initializedImplementations[implementatiom] = true;\n    }\n\n    function setGovernanceActionConsumed(bytes32 hash) internal {\n        _state.consumedGovernanceActions[hash] = true;\n    }\n\n    function setChainId(uint16 chainId) internal {\n        _state.provider.chainId = chainId;\n    }\n\n    function setGovernanceChainId(uint16 chainId) internal {\n        _state.provider.governanceChainId = chainId;\n    }\n\n    function setGovernanceContract(bytes32 governanceContract) internal {\n        _state.provider.governanceContract = governanceContract;\n    }\n\n    function setPyth2WormholeChainId(uint16 chainId) internal {\n        _state.provider.pyth2WormholeChainId = chainId;\n    }\n\n    function setPyth2WormholeContract(bytes32 contractAddr) internal {\n        _state.provider.pyth2WormholeContract = contractAddr;\n    }\n\n    function setWormhole(address wh) internal {\n        _state.wormhole = payable(wh);\n    }\n\n    function setLatestAttestation(bytes32 product, uint8 priceType, PythStructs.PriceAttestation memory attestation) internal {\n        _state.latestAttestations[product][priceType] = attestation;\n    }\n}",
+  "sourcePath": "/Users/nguyenthithuthao/Downloads/Documents/wormhole-kip7/contracts/pyth/PythSetters.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/pyth/PythSetters.sol",
+    "exportedSymbols": {
+      "BytesLib": [
+        10685
+      ],
+      "PythSetters": [
+        14584
+      ],
+      "PythState": [
+        14680
+      ],
+      "PythStorage": [
+        14676
+      ],
+      "PythStructs": [
+        14734
+      ]
+    },
+    "id": 14585,
+    "license": "Apache 2",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 14446,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "63:23:83"
+      },
+      {
+        "absolutePath": "project:/contracts/pyth/PythState.sol",
+        "file": "./PythState.sol",
+        "id": 14447,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 14585,
+        "sourceUnit": 14681,
+        "src": "88:25:83",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 14448,
+              "name": "PythState",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 14680,
+              "src": "139:9:83"
+            },
+            "id": 14449,
+            "nodeType": "InheritanceSpecifier",
+            "src": "139:9:83"
+          }
+        ],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 14584,
+        "linearizedBaseContracts": [
+          14584,
+          14680
+        ],
+        "name": "PythSetters",
+        "nameLocation": "124:11:83",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 14462,
+              "nodeType": "Block",
+              "src": "212:73:83",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 14460,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "expression": {
+                          "id": 14454,
+                          "name": "_state",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14679,
+                          "src": "222:6:83",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_State_$14675_storage",
+                            "typeString": "struct PythStorage.State storage ref"
+                          }
+                        },
+                        "id": 14457,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "initializedImplementations",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 14667,
+                        "src": "222:33:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                          "typeString": "mapping(address => bool)"
+                        }
+                      },
+                      "id": 14458,
+                      "indexExpression": {
+                        "id": 14456,
+                        "name": "implementatiom",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 14451,
+                        "src": "256:14:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "222:49:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "hexValue": "74727565",
+                      "id": 14459,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "274:4:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "222:56:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 14461,
+                  "nodeType": "ExpressionStatement",
+                  "src": "222:56:83"
+                }
+              ]
+            },
+            "id": 14463,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setInitialized",
+            "nameLocation": "164:14:83",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14452,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14451,
+                  "mutability": "mutable",
+                  "name": "implementatiom",
+                  "nameLocation": "187:14:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14463,
+                  "src": "179:22:83",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 14450,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "179:7:83",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "178:24:83"
+            },
+            "returnParameters": {
+              "id": 14453,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "212:0:83"
+            },
+            "scope": 14584,
+            "src": "155:130:83",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 14476,
+              "nodeType": "Block",
+              "src": "351:62:83",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 14474,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "expression": {
+                          "id": 14468,
+                          "name": "_state",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14679,
+                          "src": "361:6:83",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_State_$14675_storage",
+                            "typeString": "struct PythStorage.State storage ref"
+                          }
+                        },
+                        "id": 14471,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "consumedGovernanceActions",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 14663,
+                        "src": "361:32:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_bool_$",
+                          "typeString": "mapping(bytes32 => bool)"
+                        }
+                      },
+                      "id": 14472,
+                      "indexExpression": {
+                        "id": 14470,
+                        "name": "hash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 14465,
+                        "src": "394:4:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "361:38:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "hexValue": "74727565",
+                      "id": 14473,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "402:4:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "361:45:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 14475,
+                  "nodeType": "ExpressionStatement",
+                  "src": "361:45:83"
+                }
+              ]
+            },
+            "id": 14477,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setGovernanceActionConsumed",
+            "nameLocation": "300:27:83",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14466,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14465,
+                  "mutability": "mutable",
+                  "name": "hash",
+                  "nameLocation": "336:4:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14477,
+                  "src": "328:12:83",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 14464,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "328:7:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "327:14:83"
+            },
+            "returnParameters": {
+              "id": 14467,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "351:0:83"
+            },
+            "scope": 14584,
+            "src": "291:122:83",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 14490,
+              "nodeType": "Block",
+              "src": "464:50:83",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 14488,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "expression": {
+                          "id": 14482,
+                          "name": "_state",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14679,
+                          "src": "474:6:83",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_State_$14675_storage",
+                            "typeString": "struct PythStorage.State storage ref"
+                          }
+                        },
+                        "id": 14485,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "provider",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 14659,
+                        "src": "474:15:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Provider_$14654_storage",
+                          "typeString": "struct PythStorage.Provider storage ref"
+                        }
+                      },
+                      "id": 14486,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "chainId",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 14645,
+                      "src": "474:23:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint16",
+                        "typeString": "uint16"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 14487,
+                      "name": "chainId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14479,
+                      "src": "500:7:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint16",
+                        "typeString": "uint16"
+                      }
+                    },
+                    "src": "474:33:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "id": 14489,
+                  "nodeType": "ExpressionStatement",
+                  "src": "474:33:83"
+                }
+              ]
+            },
+            "id": 14491,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setChainId",
+            "nameLocation": "428:10:83",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14480,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14479,
+                  "mutability": "mutable",
+                  "name": "chainId",
+                  "nameLocation": "446:7:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14491,
+                  "src": "439:14:83",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint16",
+                    "typeString": "uint16"
+                  },
+                  "typeName": {
+                    "id": 14478,
+                    "name": "uint16",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "439:6:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "438:16:83"
+            },
+            "returnParameters": {
+              "id": 14481,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "464:0:83"
+            },
+            "scope": 14584,
+            "src": "419:95:83",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 14504,
+              "nodeType": "Block",
+              "src": "575:60:83",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 14502,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "expression": {
+                          "id": 14496,
+                          "name": "_state",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14679,
+                          "src": "585:6:83",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_State_$14675_storage",
+                            "typeString": "struct PythStorage.State storage ref"
+                          }
+                        },
+                        "id": 14499,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "provider",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 14659,
+                        "src": "585:15:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Provider_$14654_storage",
+                          "typeString": "struct PythStorage.Provider storage ref"
+                        }
+                      },
+                      "id": 14500,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "governanceChainId",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 14647,
+                      "src": "585:33:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint16",
+                        "typeString": "uint16"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 14501,
+                      "name": "chainId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14493,
+                      "src": "621:7:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint16",
+                        "typeString": "uint16"
+                      }
+                    },
+                    "src": "585:43:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "id": 14503,
+                  "nodeType": "ExpressionStatement",
+                  "src": "585:43:83"
+                }
+              ]
+            },
+            "id": 14505,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setGovernanceChainId",
+            "nameLocation": "529:20:83",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14494,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14493,
+                  "mutability": "mutable",
+                  "name": "chainId",
+                  "nameLocation": "557:7:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14505,
+                  "src": "550:14:83",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint16",
+                    "typeString": "uint16"
+                  },
+                  "typeName": {
+                    "id": 14492,
+                    "name": "uint16",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "550:6:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "549:16:83"
+            },
+            "returnParameters": {
+              "id": 14495,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "575:0:83"
+            },
+            "scope": 14584,
+            "src": "520:115:83",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 14518,
+              "nodeType": "Block",
+              "src": "709:72:83",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 14516,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "expression": {
+                          "id": 14510,
+                          "name": "_state",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14679,
+                          "src": "719:6:83",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_State_$14675_storage",
+                            "typeString": "struct PythStorage.State storage ref"
+                          }
+                        },
+                        "id": 14513,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "provider",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 14659,
+                        "src": "719:15:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Provider_$14654_storage",
+                          "typeString": "struct PythStorage.Provider storage ref"
+                        }
+                      },
+                      "id": 14514,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "governanceContract",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 14649,
+                      "src": "719:34:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 14515,
+                      "name": "governanceContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14507,
+                      "src": "756:18:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "src": "719:55:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "id": 14517,
+                  "nodeType": "ExpressionStatement",
+                  "src": "719:55:83"
+                }
+              ]
+            },
+            "id": 14519,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setGovernanceContract",
+            "nameLocation": "650:21:83",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14508,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14507,
+                  "mutability": "mutable",
+                  "name": "governanceContract",
+                  "nameLocation": "680:18:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14519,
+                  "src": "672:26:83",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 14506,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "672:7:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "671:28:83"
+            },
+            "returnParameters": {
+              "id": 14509,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "709:0:83"
+            },
+            "scope": 14584,
+            "src": "641:140:83",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 14532,
+              "nodeType": "Block",
+              "src": "845:63:83",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 14530,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "expression": {
+                          "id": 14524,
+                          "name": "_state",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14679,
+                          "src": "855:6:83",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_State_$14675_storage",
+                            "typeString": "struct PythStorage.State storage ref"
+                          }
+                        },
+                        "id": 14527,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "provider",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 14659,
+                        "src": "855:15:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Provider_$14654_storage",
+                          "typeString": "struct PythStorage.Provider storage ref"
+                        }
+                      },
+                      "id": 14528,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "pyth2WormholeChainId",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 14651,
+                      "src": "855:36:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint16",
+                        "typeString": "uint16"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 14529,
+                      "name": "chainId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14521,
+                      "src": "894:7:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint16",
+                        "typeString": "uint16"
+                      }
+                    },
+                    "src": "855:46:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "id": 14531,
+                  "nodeType": "ExpressionStatement",
+                  "src": "855:46:83"
+                }
+              ]
+            },
+            "id": 14533,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setPyth2WormholeChainId",
+            "nameLocation": "796:23:83",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14522,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14521,
+                  "mutability": "mutable",
+                  "name": "chainId",
+                  "nameLocation": "827:7:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14533,
+                  "src": "820:14:83",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint16",
+                    "typeString": "uint16"
+                  },
+                  "typeName": {
+                    "id": 14520,
+                    "name": "uint16",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "820:6:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "819:16:83"
+            },
+            "returnParameters": {
+              "id": 14523,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "845:0:83"
+            },
+            "scope": 14584,
+            "src": "787:121:83",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 14546,
+              "nodeType": "Block",
+              "src": "979:69:83",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 14544,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "expression": {
+                          "id": 14538,
+                          "name": "_state",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14679,
+                          "src": "989:6:83",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_State_$14675_storage",
+                            "typeString": "struct PythStorage.State storage ref"
+                          }
+                        },
+                        "id": 14541,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "provider",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 14659,
+                        "src": "989:15:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Provider_$14654_storage",
+                          "typeString": "struct PythStorage.Provider storage ref"
+                        }
+                      },
+                      "id": 14542,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "pyth2WormholeContract",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 14653,
+                      "src": "989:37:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 14543,
+                      "name": "contractAddr",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14535,
+                      "src": "1029:12:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "src": "989:52:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "id": 14545,
+                  "nodeType": "ExpressionStatement",
+                  "src": "989:52:83"
+                }
+              ]
+            },
+            "id": 14547,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setPyth2WormholeContract",
+            "nameLocation": "923:24:83",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14536,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14535,
+                  "mutability": "mutable",
+                  "name": "contractAddr",
+                  "nameLocation": "956:12:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14547,
+                  "src": "948:20:83",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 14534,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "948:7:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "947:22:83"
+            },
+            "returnParameters": {
+              "id": 14537,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "979:0:83"
+            },
+            "scope": 14584,
+            "src": "914:134:83",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 14561,
+              "nodeType": "Block",
+              "src": "1096:46:83",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 14559,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "id": 14552,
+                        "name": "_state",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 14679,
+                        "src": "1106:6:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_State_$14675_storage",
+                          "typeString": "struct PythStorage.State storage ref"
+                        }
+                      },
+                      "id": 14554,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "wormhole",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 14656,
+                      "src": "1106:15:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 14557,
+                          "name": "wh",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14549,
+                          "src": "1132:2:83",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 14556,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "ElementaryTypeNameExpression",
+                        "src": "1124:8:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_address_payable_$",
+                          "typeString": "type(address payable)"
+                        },
+                        "typeName": {
+                          "id": 14555,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1124:8:83",
+                          "stateMutability": "payable",
+                          "typeDescriptions": {}
+                        }
+                      },
+                      "id": 14558,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1124:11:83",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "src": "1106:29:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  },
+                  "id": 14560,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1106:29:83"
+                }
+              ]
+            },
+            "id": 14562,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setWormhole",
+            "nameLocation": "1063:11:83",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14550,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14549,
+                  "mutability": "mutable",
+                  "name": "wh",
+                  "nameLocation": "1083:2:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14562,
+                  "src": "1075:10:83",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 14548,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1075:7:83",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1074:12:83"
+            },
+            "returnParameters": {
+              "id": 14551,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1096:0:83"
+            },
+            "scope": 14584,
+            "src": "1054:88:83",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 14582,
+              "nodeType": "Block",
+              "src": "1270:76:83",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 14580,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "baseExpression": {
+                          "expression": {
+                            "id": 14572,
+                            "name": "_state",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 14679,
+                            "src": "1280:6:83",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_State_$14675_storage",
+                              "typeString": "struct PythStorage.State storage ref"
+                            }
+                          },
+                          "id": 14576,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "latestAttestations",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 14674,
+                          "src": "1280:25:83",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_bytes32_$_t_mapping$_t_uint8_$_t_struct$_PriceAttestation_$14724_storage_$_$",
+                            "typeString": "mapping(bytes32 => mapping(uint8 => struct PythStructs.PriceAttestation storage ref))"
+                          }
+                        },
+                        "id": 14577,
+                        "indexExpression": {
+                          "id": 14574,
+                          "name": "product",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14564,
+                          "src": "1306:7:83",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1280:34:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_uint8_$_t_struct$_PriceAttestation_$14724_storage_$",
+                          "typeString": "mapping(uint8 => struct PythStructs.PriceAttestation storage ref)"
+                        }
+                      },
+                      "id": 14578,
+                      "indexExpression": {
+                        "id": 14575,
+                        "name": "priceType",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 14566,
+                        "src": "1315:9:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint8",
+                          "typeString": "uint8"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "1280:45:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_PriceAttestation_$14724_storage",
+                        "typeString": "struct PythStructs.PriceAttestation storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 14579,
+                      "name": "attestation",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14569,
+                      "src": "1328:11:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_PriceAttestation_$14724_memory_ptr",
+                        "typeString": "struct PythStructs.PriceAttestation memory"
+                      }
+                    },
+                    "src": "1280:59:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_PriceAttestation_$14724_storage",
+                      "typeString": "struct PythStructs.PriceAttestation storage ref"
+                    }
+                  },
+                  "id": 14581,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1280:59:83"
+                }
+              ]
+            },
+            "id": 14583,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setLatestAttestation",
+            "nameLocation": "1157:20:83",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14570,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14564,
+                  "mutability": "mutable",
+                  "name": "product",
+                  "nameLocation": "1186:7:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14583,
+                  "src": "1178:15:83",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 14563,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1178:7:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14566,
+                  "mutability": "mutable",
+                  "name": "priceType",
+                  "nameLocation": "1201:9:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14583,
+                  "src": "1195:15:83",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 14565,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1195:5:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14569,
+                  "mutability": "mutable",
+                  "name": "attestation",
+                  "nameLocation": "1248:11:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14583,
+                  "src": "1212:47:83",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_PriceAttestation_$14724_memory_ptr",
+                    "typeString": "struct PythStructs.PriceAttestation"
+                  },
+                  "typeName": {
+                    "id": 14568,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 14567,
+                      "name": "PythStructs.PriceAttestation",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 14724,
+                      "src": "1212:28:83"
+                    },
+                    "referencedDeclaration": 14724,
+                    "src": "1212:28:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_PriceAttestation_$14724_storage_ptr",
+                      "typeString": "struct PythStructs.PriceAttestation"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1177:83:83"
+            },
+            "returnParameters": {
+              "id": 14571,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1270:0:83"
+            },
+            "scope": 14584,
+            "src": "1148:198:83",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 14585,
+        "src": "115:1233:83",
+        "usedErrors": []
+      }
+    ],
+    "src": "63:1285:83"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/pyth/PythSetters.sol",
+    "exportedSymbols": {
+      "BytesLib": [
+        10685
+      ],
+      "PythSetters": [
+        14584
+      ],
+      "PythState": [
+        14680
+      ],
+      "PythStorage": [
+        14676
+      ],
+      "PythStructs": [
+        14734
+      ]
+    },
+    "id": 14585,
+    "license": "Apache 2",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 14446,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "63:23:83"
+      },
+      {
+        "absolutePath": "project:/contracts/pyth/PythState.sol",
+        "file": "./PythState.sol",
+        "id": 14447,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 14585,
+        "sourceUnit": 14681,
+        "src": "88:25:83",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 14448,
+              "name": "PythState",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 14680,
+              "src": "139:9:83"
+            },
+            "id": 14449,
+            "nodeType": "InheritanceSpecifier",
+            "src": "139:9:83"
+          }
+        ],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 14584,
+        "linearizedBaseContracts": [
+          14584,
+          14680
+        ],
+        "name": "PythSetters",
+        "nameLocation": "124:11:83",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 14462,
+              "nodeType": "Block",
+              "src": "212:73:83",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 14460,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "expression": {
+                          "id": 14454,
+                          "name": "_state",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14679,
+                          "src": "222:6:83",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_State_$14675_storage",
+                            "typeString": "struct PythStorage.State storage ref"
+                          }
+                        },
+                        "id": 14457,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "initializedImplementations",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 14667,
+                        "src": "222:33:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                          "typeString": "mapping(address => bool)"
+                        }
+                      },
+                      "id": 14458,
+                      "indexExpression": {
+                        "id": 14456,
+                        "name": "implementatiom",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 14451,
+                        "src": "256:14:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "222:49:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "hexValue": "74727565",
+                      "id": 14459,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "274:4:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "222:56:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 14461,
+                  "nodeType": "ExpressionStatement",
+                  "src": "222:56:83"
+                }
+              ]
+            },
+            "id": 14463,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setInitialized",
+            "nameLocation": "164:14:83",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14452,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14451,
+                  "mutability": "mutable",
+                  "name": "implementatiom",
+                  "nameLocation": "187:14:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14463,
+                  "src": "179:22:83",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 14450,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "179:7:83",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "178:24:83"
+            },
+            "returnParameters": {
+              "id": 14453,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "212:0:83"
+            },
+            "scope": 14584,
+            "src": "155:130:83",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 14476,
+              "nodeType": "Block",
+              "src": "351:62:83",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 14474,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "expression": {
+                          "id": 14468,
+                          "name": "_state",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14679,
+                          "src": "361:6:83",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_State_$14675_storage",
+                            "typeString": "struct PythStorage.State storage ref"
+                          }
+                        },
+                        "id": 14471,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "consumedGovernanceActions",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 14663,
+                        "src": "361:32:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_bool_$",
+                          "typeString": "mapping(bytes32 => bool)"
+                        }
+                      },
+                      "id": 14472,
+                      "indexExpression": {
+                        "id": 14470,
+                        "name": "hash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 14465,
+                        "src": "394:4:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "361:38:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "hexValue": "74727565",
+                      "id": 14473,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "402:4:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "361:45:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 14475,
+                  "nodeType": "ExpressionStatement",
+                  "src": "361:45:83"
+                }
+              ]
+            },
+            "id": 14477,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setGovernanceActionConsumed",
+            "nameLocation": "300:27:83",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14466,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14465,
+                  "mutability": "mutable",
+                  "name": "hash",
+                  "nameLocation": "336:4:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14477,
+                  "src": "328:12:83",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 14464,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "328:7:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "327:14:83"
+            },
+            "returnParameters": {
+              "id": 14467,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "351:0:83"
+            },
+            "scope": 14584,
+            "src": "291:122:83",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 14490,
+              "nodeType": "Block",
+              "src": "464:50:83",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 14488,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "expression": {
+                          "id": 14482,
+                          "name": "_state",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14679,
+                          "src": "474:6:83",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_State_$14675_storage",
+                            "typeString": "struct PythStorage.State storage ref"
+                          }
+                        },
+                        "id": 14485,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "provider",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 14659,
+                        "src": "474:15:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Provider_$14654_storage",
+                          "typeString": "struct PythStorage.Provider storage ref"
+                        }
+                      },
+                      "id": 14486,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "chainId",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 14645,
+                      "src": "474:23:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint16",
+                        "typeString": "uint16"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 14487,
+                      "name": "chainId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14479,
+                      "src": "500:7:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint16",
+                        "typeString": "uint16"
+                      }
+                    },
+                    "src": "474:33:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "id": 14489,
+                  "nodeType": "ExpressionStatement",
+                  "src": "474:33:83"
+                }
+              ]
+            },
+            "id": 14491,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setChainId",
+            "nameLocation": "428:10:83",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14480,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14479,
+                  "mutability": "mutable",
+                  "name": "chainId",
+                  "nameLocation": "446:7:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14491,
+                  "src": "439:14:83",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint16",
+                    "typeString": "uint16"
+                  },
+                  "typeName": {
+                    "id": 14478,
+                    "name": "uint16",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "439:6:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "438:16:83"
+            },
+            "returnParameters": {
+              "id": 14481,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "464:0:83"
+            },
+            "scope": 14584,
+            "src": "419:95:83",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 14504,
+              "nodeType": "Block",
+              "src": "575:60:83",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 14502,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "expression": {
+                          "id": 14496,
+                          "name": "_state",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14679,
+                          "src": "585:6:83",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_State_$14675_storage",
+                            "typeString": "struct PythStorage.State storage ref"
+                          }
+                        },
+                        "id": 14499,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "provider",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 14659,
+                        "src": "585:15:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Provider_$14654_storage",
+                          "typeString": "struct PythStorage.Provider storage ref"
+                        }
+                      },
+                      "id": 14500,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "governanceChainId",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 14647,
+                      "src": "585:33:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint16",
+                        "typeString": "uint16"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 14501,
+                      "name": "chainId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14493,
+                      "src": "621:7:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint16",
+                        "typeString": "uint16"
+                      }
+                    },
+                    "src": "585:43:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "id": 14503,
+                  "nodeType": "ExpressionStatement",
+                  "src": "585:43:83"
+                }
+              ]
+            },
+            "id": 14505,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setGovernanceChainId",
+            "nameLocation": "529:20:83",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14494,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14493,
+                  "mutability": "mutable",
+                  "name": "chainId",
+                  "nameLocation": "557:7:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14505,
+                  "src": "550:14:83",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint16",
+                    "typeString": "uint16"
+                  },
+                  "typeName": {
+                    "id": 14492,
+                    "name": "uint16",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "550:6:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "549:16:83"
+            },
+            "returnParameters": {
+              "id": 14495,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "575:0:83"
+            },
+            "scope": 14584,
+            "src": "520:115:83",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 14518,
+              "nodeType": "Block",
+              "src": "709:72:83",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 14516,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "expression": {
+                          "id": 14510,
+                          "name": "_state",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14679,
+                          "src": "719:6:83",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_State_$14675_storage",
+                            "typeString": "struct PythStorage.State storage ref"
+                          }
+                        },
+                        "id": 14513,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "provider",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 14659,
+                        "src": "719:15:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Provider_$14654_storage",
+                          "typeString": "struct PythStorage.Provider storage ref"
+                        }
+                      },
+                      "id": 14514,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "governanceContract",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 14649,
+                      "src": "719:34:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 14515,
+                      "name": "governanceContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14507,
+                      "src": "756:18:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "src": "719:55:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "id": 14517,
+                  "nodeType": "ExpressionStatement",
+                  "src": "719:55:83"
+                }
+              ]
+            },
+            "id": 14519,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setGovernanceContract",
+            "nameLocation": "650:21:83",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14508,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14507,
+                  "mutability": "mutable",
+                  "name": "governanceContract",
+                  "nameLocation": "680:18:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14519,
+                  "src": "672:26:83",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 14506,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "672:7:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "671:28:83"
+            },
+            "returnParameters": {
+              "id": 14509,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "709:0:83"
+            },
+            "scope": 14584,
+            "src": "641:140:83",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 14532,
+              "nodeType": "Block",
+              "src": "845:63:83",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 14530,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "expression": {
+                          "id": 14524,
+                          "name": "_state",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14679,
+                          "src": "855:6:83",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_State_$14675_storage",
+                            "typeString": "struct PythStorage.State storage ref"
+                          }
+                        },
+                        "id": 14527,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "provider",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 14659,
+                        "src": "855:15:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Provider_$14654_storage",
+                          "typeString": "struct PythStorage.Provider storage ref"
+                        }
+                      },
+                      "id": 14528,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "pyth2WormholeChainId",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 14651,
+                      "src": "855:36:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint16",
+                        "typeString": "uint16"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 14529,
+                      "name": "chainId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14521,
+                      "src": "894:7:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint16",
+                        "typeString": "uint16"
+                      }
+                    },
+                    "src": "855:46:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "id": 14531,
+                  "nodeType": "ExpressionStatement",
+                  "src": "855:46:83"
+                }
+              ]
+            },
+            "id": 14533,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setPyth2WormholeChainId",
+            "nameLocation": "796:23:83",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14522,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14521,
+                  "mutability": "mutable",
+                  "name": "chainId",
+                  "nameLocation": "827:7:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14533,
+                  "src": "820:14:83",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint16",
+                    "typeString": "uint16"
+                  },
+                  "typeName": {
+                    "id": 14520,
+                    "name": "uint16",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "820:6:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint16",
+                      "typeString": "uint16"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "819:16:83"
+            },
+            "returnParameters": {
+              "id": 14523,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "845:0:83"
+            },
+            "scope": 14584,
+            "src": "787:121:83",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 14546,
+              "nodeType": "Block",
+              "src": "979:69:83",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 14544,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "expression": {
+                          "id": 14538,
+                          "name": "_state",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14679,
+                          "src": "989:6:83",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_State_$14675_storage",
+                            "typeString": "struct PythStorage.State storage ref"
+                          }
+                        },
+                        "id": 14541,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "provider",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 14659,
+                        "src": "989:15:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Provider_$14654_storage",
+                          "typeString": "struct PythStorage.Provider storage ref"
+                        }
+                      },
+                      "id": 14542,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "pyth2WormholeContract",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 14653,
+                      "src": "989:37:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 14543,
+                      "name": "contractAddr",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14535,
+                      "src": "1029:12:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "src": "989:52:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "id": 14545,
+                  "nodeType": "ExpressionStatement",
+                  "src": "989:52:83"
+                }
+              ]
+            },
+            "id": 14547,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setPyth2WormholeContract",
+            "nameLocation": "923:24:83",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14536,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14535,
+                  "mutability": "mutable",
+                  "name": "contractAddr",
+                  "nameLocation": "956:12:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14547,
+                  "src": "948:20:83",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 14534,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "948:7:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "947:22:83"
+            },
+            "returnParameters": {
+              "id": 14537,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "979:0:83"
+            },
+            "scope": 14584,
+            "src": "914:134:83",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 14561,
+              "nodeType": "Block",
+              "src": "1096:46:83",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 14559,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "id": 14552,
+                        "name": "_state",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 14679,
+                        "src": "1106:6:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_State_$14675_storage",
+                          "typeString": "struct PythStorage.State storage ref"
+                        }
+                      },
+                      "id": 14554,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "wormhole",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 14656,
+                      "src": "1106:15:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 14557,
+                          "name": "wh",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14549,
+                          "src": "1132:2:83",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 14556,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "ElementaryTypeNameExpression",
+                        "src": "1124:8:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_address_payable_$",
+                          "typeString": "type(address payable)"
+                        },
+                        "typeName": {
+                          "id": 14555,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1124:8:83",
+                          "stateMutability": "payable",
+                          "typeDescriptions": {}
+                        }
+                      },
+                      "id": 14558,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1124:11:83",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "src": "1106:29:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  },
+                  "id": 14560,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1106:29:83"
+                }
+              ]
+            },
+            "id": 14562,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setWormhole",
+            "nameLocation": "1063:11:83",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14550,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14549,
+                  "mutability": "mutable",
+                  "name": "wh",
+                  "nameLocation": "1083:2:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14562,
+                  "src": "1075:10:83",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 14548,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1075:7:83",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1074:12:83"
+            },
+            "returnParameters": {
+              "id": 14551,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1096:0:83"
+            },
+            "scope": 14584,
+            "src": "1054:88:83",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 14582,
+              "nodeType": "Block",
+              "src": "1270:76:83",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 14580,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "baseExpression": {
+                          "expression": {
+                            "id": 14572,
+                            "name": "_state",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 14679,
+                            "src": "1280:6:83",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_State_$14675_storage",
+                              "typeString": "struct PythStorage.State storage ref"
+                            }
+                          },
+                          "id": 14576,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "latestAttestations",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 14674,
+                          "src": "1280:25:83",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_bytes32_$_t_mapping$_t_uint8_$_t_struct$_PriceAttestation_$14724_storage_$_$",
+                            "typeString": "mapping(bytes32 => mapping(uint8 => struct PythStructs.PriceAttestation storage ref))"
+                          }
+                        },
+                        "id": 14577,
+                        "indexExpression": {
+                          "id": 14574,
+                          "name": "product",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14564,
+                          "src": "1306:7:83",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1280:34:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_uint8_$_t_struct$_PriceAttestation_$14724_storage_$",
+                          "typeString": "mapping(uint8 => struct PythStructs.PriceAttestation storage ref)"
+                        }
+                      },
+                      "id": 14578,
+                      "indexExpression": {
+                        "id": 14575,
+                        "name": "priceType",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 14566,
+                        "src": "1315:9:83",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint8",
+                          "typeString": "uint8"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "1280:45:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_PriceAttestation_$14724_storage",
+                        "typeString": "struct PythStructs.PriceAttestation storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 14579,
+                      "name": "attestation",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14569,
+                      "src": "1328:11:83",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_PriceAttestation_$14724_memory_ptr",
+                        "typeString": "struct PythStructs.PriceAttestation memory"
+                      }
+                    },
+                    "src": "1280:59:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_PriceAttestation_$14724_storage",
+                      "typeString": "struct PythStructs.PriceAttestation storage ref"
+                    }
+                  },
+                  "id": 14581,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1280:59:83"
+                }
+              ]
+            },
+            "id": 14583,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setLatestAttestation",
+            "nameLocation": "1157:20:83",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14570,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14564,
+                  "mutability": "mutable",
+                  "name": "product",
+                  "nameLocation": "1186:7:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14583,
+                  "src": "1178:15:83",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 14563,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1178:7:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14566,
+                  "mutability": "mutable",
+                  "name": "priceType",
+                  "nameLocation": "1201:9:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14583,
+                  "src": "1195:15:83",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 14565,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1195:5:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14569,
+                  "mutability": "mutable",
+                  "name": "attestation",
+                  "nameLocation": "1248:11:83",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14583,
+                  "src": "1212:47:83",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_PriceAttestation_$14724_memory_ptr",
+                    "typeString": "struct PythStructs.PriceAttestation"
+                  },
+                  "typeName": {
+                    "id": 14568,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 14567,
+                      "name": "PythStructs.PriceAttestation",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 14724,
+                      "src": "1212:28:83"
+                    },
+                    "referencedDeclaration": 14724,
+                    "src": "1212:28:83",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_PriceAttestation_$14724_storage_ptr",
+                      "typeString": "struct PythStructs.PriceAttestation"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1177:83:83"
+            },
+            "returnParameters": {
+              "id": 14571,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1270:0:83"
+            },
+            "scope": 14584,
+            "src": "1148:198:83",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 14585,
+        "src": "115:1233:83",
+        "usedErrors": []
+      }
+    ],
+    "src": "63:1285:83"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.4+commit.c7e474f2.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.1",
+  "updatedAt": "2022-01-26T09:33:50.735Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

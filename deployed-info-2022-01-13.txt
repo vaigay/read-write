@@ -1,0 +1,220 @@
+[
+  {
+    anonymous: false,
+    inputs: [ [Object], [Object] ],
+    name: 'AdminChanged',
+    type: 'event'
+  },
+  {
+    anonymous: false,
+    inputs: [ [Object] ],
+    name: 'BeaconUpgraded',
+    type: 'event'
+  },
+  {
+    anonymous: false,
+    inputs: [ [Object], [Object] ],
+    name: 'ContractUpgraded',
+    type: 'event'
+  },
+  {
+    anonymous: false,
+    inputs: [ [Object] ],
+    name: 'GuardianSetAdded',
+    type: 'event'
+  },
+  {
+    anonymous: false,
+    inputs: [ [Object], [Object], [Object], [Object], [Object] ],
+    name: 'LogMessagePublished',
+    type: 'event'
+  },
+  {
+    anonymous: false,
+    inputs: [ [Object] ],
+    name: 'Upgraded',
+    type: 'event'
+  },
+  { stateMutability: 'payable', type: 'fallback', payable: true },
+  {
+    inputs: [],
+    name: 'chainId',
+    outputs: [ [Object] ],
+    stateMutability: 'view',
+    type: 'function',
+    constant: true
+  },
+  {
+    inputs: [],
+    name: 'getCurrentGuardianSetIndex',
+    outputs: [ [Object] ],
+    stateMutability: 'view',
+    type: 'function',
+    constant: true
+  },
+  {
+    inputs: [ [Object] ],
+    name: 'getGuardianSet',
+    outputs: [ [Object] ],
+    stateMutability: 'view',
+    type: 'function',
+    constant: true
+  },
+  {
+    inputs: [],
+    name: 'getGuardianSetExpiry',
+    outputs: [ [Object] ],
+    stateMutability: 'view',
+    type: 'function',
+    constant: true
+  },
+  {
+    inputs: [ [Object] ],
+    name: 'governanceActionIsConsumed',
+    outputs: [ [Object] ],
+    stateMutability: 'view',
+    type: 'function',
+    constant: true
+  },
+  {
+    inputs: [],
+    name: 'governanceChainId',
+    outputs: [ [Object] ],
+    stateMutability: 'view',
+    type: 'function',
+    constant: true
+  },
+  {
+    inputs: [],
+    name: 'governanceContract',
+    outputs: [ [Object] ],
+    stateMutability: 'view',
+    type: 'function',
+    constant: true
+  },
+  {
+    inputs: [ [Object] ],
+    name: 'isInitialized',
+    outputs: [ [Object] ],
+    stateMutability: 'view',
+    type: 'function',
+    constant: true
+  },
+  {
+    inputs: [],
+    name: 'messageFee',
+    outputs: [ [Object] ],
+    stateMutability: 'view',
+    type: 'function',
+    constant: true
+  },
+  {
+    inputs: [ [Object] ],
+    name: 'nextSequence',
+    outputs: [ [Object] ],
+    stateMutability: 'view',
+    type: 'function',
+    constant: true
+  },
+  {
+    inputs: [ [Object] ],
+    name: 'parseAndVerifyVM',
+    outputs: [ [Object], [Object], [Object] ],
+    stateMutability: 'view',
+    type: 'function',
+    constant: true
+  },
+  {
+    inputs: [ [Object] ],
+    name: 'parseContractUpgrade',
+    outputs: [ [Object] ],
+    stateMutability: 'pure',
+    type: 'function',
+    constant: true
+  },
+  {
+    inputs: [ [Object] ],
+    name: 'parseGuardianSetUpgrade',
+    outputs: [ [Object] ],
+    stateMutability: 'pure',
+    type: 'function',
+    constant: true
+  },
+  {
+    inputs: [ [Object] ],
+    name: 'parseSetMessageFee',
+    outputs: [ [Object] ],
+    stateMutability: 'pure',
+    type: 'function',
+    constant: true
+  },
+  {
+    inputs: [ [Object] ],
+    name: 'parseTransferFees',
+    outputs: [ [Object] ],
+    stateMutability: 'pure',
+    type: 'function',
+    constant: true
+  },
+  {
+    inputs: [ [Object] ],
+    name: 'parseVM',
+    outputs: [ [Object] ],
+    stateMutability: 'pure',
+    type: 'function',
+    constant: true
+  },
+  {
+    inputs: [ [Object] ],
+    name: 'submitContractUpgrade',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function'
+  },
+  {
+    inputs: [ [Object] ],
+    name: 'submitNewGuardianSet',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function'
+  },
+  {
+    inputs: [ [Object] ],
+    name: 'submitSetMessageFee',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function'
+  },
+  {
+    inputs: [ [Object] ],
+    name: 'submitTransferFees',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function'
+  },
+  {
+    inputs: [ [Object], [Object], [Object] ],
+    name: 'verifySignatures',
+    outputs: [ [Object], [Object] ],
+    stateMutability: 'pure',
+    type: 'function',
+    constant: true
+  },
+  {
+    inputs: [ [Object] ],
+    name: 'verifyVM',
+    outputs: [ [Object], [Object] ],
+    stateMutability: 'view',
+    type: 'function',
+    constant: true
+  },
+  { stateMutability: 'payable', type: 'receive', payable: true },
+  {
+    inputs: [ [Object], [Object], [Object] ],
+    name: 'publishMessage',
+    outputs: [ [Object] ],
+    stateMutability: 'payable',
+    type: 'function',
+    payable: true
+  }
+]

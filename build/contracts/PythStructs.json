@@ -1,0 +1,1429 @@
+{
+  "contractName": "PythStructs",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/pyth/PythStructs.sol\":\"PythStructs\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/libraries/external/BytesLib.sol\":{\"keccak256\":\"0xf75784dfc94ea43668eb195d5690a1dde1b6eda62017e73a3899721583821d29\",\"license\":\"Unlicense\",\"urls\":[\"bzz-raw://ca16cef8b94f3ac75d376489a668618f6c4595a906b939d674a883f4bf426014\",\"dweb:/ipfs/QmceGU7qhyFLSejaj6i4dEtMzXDCSF3aYDtW1UeKjXQaRn\"]},\"project:/contracts/pyth/PythStructs.sol\":{\"keccak256\":\"0x96a84f516e7fa91cbeac32843549cf93b6a0c58308f27023710589107779016f\",\"license\":\"Apache 2\",\"urls\":[\"bzz-raw://37d621a6202dc99a5b85d59e0c6ea4d4b34250e745aeb9a359cfd2a668331a63\",\"dweb:/ipfs/QmXqBgXhbHuHzBF2pdVmznsadpCfDDFtytUKnXJQvBPPJU\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea264697066735822122046c52b2e7fe7d8aa2270d28f0fe8e1cfddaa354665bdfef038deb53bafe0e99664736f6c63430008040033",
+  "deployedBytecode": "0x6080604052600080fdfea264697066735822122046c52b2e7fe7d8aa2270d28f0fe8e1cfddaa354665bdfef038deb53bafe0e99664736f6c63430008040033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "134:715:86:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "134:715:86:-:0;;;;;",
+  "source": "// contracts/Structs.sol\n// SPDX-License-Identifier: Apache 2\n\npragma solidity ^0.8.0;\n\nimport \"../libraries/external/BytesLib.sol\";\n\ncontract PythStructs {\n    using BytesLib for bytes;\n\n    struct Ema {\n        int64 value;\n        int64 numerator;\n        int64 denominator;\n    }\n\n    struct PriceAttestation {\n        uint32 magic; // constant \"P2WH\"\n        uint16 version;\n\n        // PayloadID uint8 = 1\n        uint8 payloadId;\n\n        bytes32 productId;\n        bytes32 priceId;\n\n        uint8 priceType;\n\n        int64 price;\n        int32 exponent;\n\n        Ema twap;\n        Ema twac;\n\n        uint64 confidenceInterval;\n\n        uint8 status;\n        uint8 corpAct;\n\n        uint64 timestamp;\n    }\n\n    struct UpgradeContract {\n        bytes32 module;\n        uint8 action;\n        uint16 chain;\n\n        address newContract;\n    }\n}",
+  "sourcePath": "/Users/nguyenthithuthao/Downloads/Documents/wormhole-kip7/contracts/pyth/PythStructs.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/pyth/PythStructs.sol",
+    "exportedSymbols": {
+      "BytesLib": [
+        10685
+      ],
+      "PythStructs": [
+        14734
+      ]
+    },
+    "id": 14735,
+    "license": "Apache 2",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 14682,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "63:23:86"
+      },
+      {
+        "absolutePath": "project:/contracts/libraries/external/BytesLib.sol",
+        "file": "../libraries/external/BytesLib.sol",
+        "id": 14683,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 14735,
+        "sourceUnit": 10686,
+        "src": "88:44:86",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 14734,
+        "linearizedBaseContracts": [
+          14734
+        ],
+        "name": "PythStructs",
+        "nameLocation": "143:11:86",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 14686,
+            "libraryName": {
+              "id": 14684,
+              "name": "BytesLib",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 10685,
+              "src": "167:8:86"
+            },
+            "nodeType": "UsingForDirective",
+            "src": "161:25:86",
+            "typeName": {
+              "id": 14685,
+              "name": "bytes",
+              "nodeType": "ElementaryTypeName",
+              "src": "180:5:86",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes_storage_ptr",
+                "typeString": "bytes"
+              }
+            }
+          },
+          {
+            "canonicalName": "PythStructs.Ema",
+            "id": 14693,
+            "members": [
+              {
+                "constant": false,
+                "id": 14688,
+                "mutability": "mutable",
+                "name": "value",
+                "nameLocation": "219:5:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14693,
+                "src": "213:11:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int64",
+                  "typeString": "int64"
+                },
+                "typeName": {
+                  "id": 14687,
+                  "name": "int64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "213:5:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int64",
+                    "typeString": "int64"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14690,
+                "mutability": "mutable",
+                "name": "numerator",
+                "nameLocation": "240:9:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14693,
+                "src": "234:15:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int64",
+                  "typeString": "int64"
+                },
+                "typeName": {
+                  "id": 14689,
+                  "name": "int64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "234:5:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int64",
+                    "typeString": "int64"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14692,
+                "mutability": "mutable",
+                "name": "denominator",
+                "nameLocation": "265:11:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14693,
+                "src": "259:17:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int64",
+                  "typeString": "int64"
+                },
+                "typeName": {
+                  "id": 14691,
+                  "name": "int64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "259:5:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int64",
+                    "typeString": "int64"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Ema",
+            "nameLocation": "199:3:86",
+            "nodeType": "StructDefinition",
+            "scope": 14734,
+            "src": "192:91:86",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "PythStructs.PriceAttestation",
+            "id": 14724,
+            "members": [
+              {
+                "constant": false,
+                "id": 14695,
+                "mutability": "mutable",
+                "name": "magic",
+                "nameLocation": "330:5:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "323:12:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 14694,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "323:6:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14697,
+                "mutability": "mutable",
+                "name": "version",
+                "nameLocation": "371:7:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "364:14:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint16",
+                  "typeString": "uint16"
+                },
+                "typeName": {
+                  "id": 14696,
+                  "name": "uint16",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "364:6:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint16",
+                    "typeString": "uint16"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14699,
+                "mutability": "mutable",
+                "name": "payloadId",
+                "nameLocation": "426:9:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "420:15:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 14698,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "420:5:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14701,
+                "mutability": "mutable",
+                "name": "productId",
+                "nameLocation": "454:9:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "446:17:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 14700,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "446:7:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14703,
+                "mutability": "mutable",
+                "name": "priceId",
+                "nameLocation": "481:7:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "473:15:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 14702,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "473:7:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14705,
+                "mutability": "mutable",
+                "name": "priceType",
+                "nameLocation": "505:9:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "499:15:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 14704,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "499:5:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14707,
+                "mutability": "mutable",
+                "name": "price",
+                "nameLocation": "531:5:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "525:11:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int64",
+                  "typeString": "int64"
+                },
+                "typeName": {
+                  "id": 14706,
+                  "name": "int64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "525:5:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int64",
+                    "typeString": "int64"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14709,
+                "mutability": "mutable",
+                "name": "exponent",
+                "nameLocation": "552:8:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "546:14:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int32",
+                  "typeString": "int32"
+                },
+                "typeName": {
+                  "id": 14708,
+                  "name": "int32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "546:5:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int32",
+                    "typeString": "int32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14712,
+                "mutability": "mutable",
+                "name": "twap",
+                "nameLocation": "575:4:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "571:8:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Ema_$14693_storage_ptr",
+                  "typeString": "struct PythStructs.Ema"
+                },
+                "typeName": {
+                  "id": 14711,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 14710,
+                    "name": "Ema",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 14693,
+                    "src": "571:3:86"
+                  },
+                  "referencedDeclaration": 14693,
+                  "src": "571:3:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Ema_$14693_storage_ptr",
+                    "typeString": "struct PythStructs.Ema"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14715,
+                "mutability": "mutable",
+                "name": "twac",
+                "nameLocation": "593:4:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "589:8:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Ema_$14693_storage_ptr",
+                  "typeString": "struct PythStructs.Ema"
+                },
+                "typeName": {
+                  "id": 14714,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 14713,
+                    "name": "Ema",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 14693,
+                    "src": "589:3:86"
+                  },
+                  "referencedDeclaration": 14693,
+                  "src": "589:3:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Ema_$14693_storage_ptr",
+                    "typeString": "struct PythStructs.Ema"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14717,
+                "mutability": "mutable",
+                "name": "confidenceInterval",
+                "nameLocation": "615:18:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "608:25:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint64",
+                  "typeString": "uint64"
+                },
+                "typeName": {
+                  "id": 14716,
+                  "name": "uint64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "608:6:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14719,
+                "mutability": "mutable",
+                "name": "status",
+                "nameLocation": "650:6:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "644:12:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 14718,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "644:5:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14721,
+                "mutability": "mutable",
+                "name": "corpAct",
+                "nameLocation": "672:7:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "666:13:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 14720,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "666:5:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14723,
+                "mutability": "mutable",
+                "name": "timestamp",
+                "nameLocation": "697:9:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "690:16:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint64",
+                  "typeString": "uint64"
+                },
+                "typeName": {
+                  "id": 14722,
+                  "name": "uint64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "690:6:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "PriceAttestation",
+            "nameLocation": "296:16:86",
+            "nodeType": "StructDefinition",
+            "scope": 14734,
+            "src": "289:424:86",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "PythStructs.UpgradeContract",
+            "id": 14733,
+            "members": [
+              {
+                "constant": false,
+                "id": 14726,
+                "mutability": "mutable",
+                "name": "module",
+                "nameLocation": "760:6:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14733,
+                "src": "752:14:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 14725,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "752:7:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14728,
+                "mutability": "mutable",
+                "name": "action",
+                "nameLocation": "782:6:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14733,
+                "src": "776:12:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 14727,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "776:5:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14730,
+                "mutability": "mutable",
+                "name": "chain",
+                "nameLocation": "805:5:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14733,
+                "src": "798:12:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint16",
+                  "typeString": "uint16"
+                },
+                "typeName": {
+                  "id": 14729,
+                  "name": "uint16",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "798:6:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint16",
+                    "typeString": "uint16"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14732,
+                "mutability": "mutable",
+                "name": "newContract",
+                "nameLocation": "829:11:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14733,
+                "src": "821:19:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 14731,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "821:7:86",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "UpgradeContract",
+            "nameLocation": "726:15:86",
+            "nodeType": "StructDefinition",
+            "scope": 14734,
+            "src": "719:128:86",
+            "visibility": "public"
+          }
+        ],
+        "scope": 14735,
+        "src": "134:715:86",
+        "usedErrors": []
+      }
+    ],
+    "src": "63:786:86"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/pyth/PythStructs.sol",
+    "exportedSymbols": {
+      "BytesLib": [
+        10685
+      ],
+      "PythStructs": [
+        14734
+      ]
+    },
+    "id": 14735,
+    "license": "Apache 2",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 14682,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "63:23:86"
+      },
+      {
+        "absolutePath": "project:/contracts/libraries/external/BytesLib.sol",
+        "file": "../libraries/external/BytesLib.sol",
+        "id": 14683,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 14735,
+        "sourceUnit": 10686,
+        "src": "88:44:86",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 14734,
+        "linearizedBaseContracts": [
+          14734
+        ],
+        "name": "PythStructs",
+        "nameLocation": "143:11:86",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 14686,
+            "libraryName": {
+              "id": 14684,
+              "name": "BytesLib",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 10685,
+              "src": "167:8:86"
+            },
+            "nodeType": "UsingForDirective",
+            "src": "161:25:86",
+            "typeName": {
+              "id": 14685,
+              "name": "bytes",
+              "nodeType": "ElementaryTypeName",
+              "src": "180:5:86",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes_storage_ptr",
+                "typeString": "bytes"
+              }
+            }
+          },
+          {
+            "canonicalName": "PythStructs.Ema",
+            "id": 14693,
+            "members": [
+              {
+                "constant": false,
+                "id": 14688,
+                "mutability": "mutable",
+                "name": "value",
+                "nameLocation": "219:5:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14693,
+                "src": "213:11:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int64",
+                  "typeString": "int64"
+                },
+                "typeName": {
+                  "id": 14687,
+                  "name": "int64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "213:5:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int64",
+                    "typeString": "int64"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14690,
+                "mutability": "mutable",
+                "name": "numerator",
+                "nameLocation": "240:9:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14693,
+                "src": "234:15:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int64",
+                  "typeString": "int64"
+                },
+                "typeName": {
+                  "id": 14689,
+                  "name": "int64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "234:5:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int64",
+                    "typeString": "int64"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14692,
+                "mutability": "mutable",
+                "name": "denominator",
+                "nameLocation": "265:11:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14693,
+                "src": "259:17:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int64",
+                  "typeString": "int64"
+                },
+                "typeName": {
+                  "id": 14691,
+                  "name": "int64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "259:5:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int64",
+                    "typeString": "int64"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Ema",
+            "nameLocation": "199:3:86",
+            "nodeType": "StructDefinition",
+            "scope": 14734,
+            "src": "192:91:86",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "PythStructs.PriceAttestation",
+            "id": 14724,
+            "members": [
+              {
+                "constant": false,
+                "id": 14695,
+                "mutability": "mutable",
+                "name": "magic",
+                "nameLocation": "330:5:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "323:12:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 14694,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "323:6:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14697,
+                "mutability": "mutable",
+                "name": "version",
+                "nameLocation": "371:7:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "364:14:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint16",
+                  "typeString": "uint16"
+                },
+                "typeName": {
+                  "id": 14696,
+                  "name": "uint16",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "364:6:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint16",
+                    "typeString": "uint16"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14699,
+                "mutability": "mutable",
+                "name": "payloadId",
+                "nameLocation": "426:9:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "420:15:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 14698,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "420:5:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14701,
+                "mutability": "mutable",
+                "name": "productId",
+                "nameLocation": "454:9:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "446:17:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 14700,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "446:7:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14703,
+                "mutability": "mutable",
+                "name": "priceId",
+                "nameLocation": "481:7:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "473:15:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 14702,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "473:7:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14705,
+                "mutability": "mutable",
+                "name": "priceType",
+                "nameLocation": "505:9:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "499:15:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 14704,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "499:5:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14707,
+                "mutability": "mutable",
+                "name": "price",
+                "nameLocation": "531:5:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "525:11:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int64",
+                  "typeString": "int64"
+                },
+                "typeName": {
+                  "id": 14706,
+                  "name": "int64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "525:5:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int64",
+                    "typeString": "int64"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14709,
+                "mutability": "mutable",
+                "name": "exponent",
+                "nameLocation": "552:8:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "546:14:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int32",
+                  "typeString": "int32"
+                },
+                "typeName": {
+                  "id": 14708,
+                  "name": "int32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "546:5:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int32",
+                    "typeString": "int32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14712,
+                "mutability": "mutable",
+                "name": "twap",
+                "nameLocation": "575:4:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "571:8:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Ema_$14693_storage_ptr",
+                  "typeString": "struct PythStructs.Ema"
+                },
+                "typeName": {
+                  "id": 14711,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 14710,
+                    "name": "Ema",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 14693,
+                    "src": "571:3:86"
+                  },
+                  "referencedDeclaration": 14693,
+                  "src": "571:3:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Ema_$14693_storage_ptr",
+                    "typeString": "struct PythStructs.Ema"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14715,
+                "mutability": "mutable",
+                "name": "twac",
+                "nameLocation": "593:4:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "589:8:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Ema_$14693_storage_ptr",
+                  "typeString": "struct PythStructs.Ema"
+                },
+                "typeName": {
+                  "id": 14714,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 14713,
+                    "name": "Ema",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 14693,
+                    "src": "589:3:86"
+                  },
+                  "referencedDeclaration": 14693,
+                  "src": "589:3:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Ema_$14693_storage_ptr",
+                    "typeString": "struct PythStructs.Ema"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14717,
+                "mutability": "mutable",
+                "name": "confidenceInterval",
+                "nameLocation": "615:18:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "608:25:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint64",
+                  "typeString": "uint64"
+                },
+                "typeName": {
+                  "id": 14716,
+                  "name": "uint64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "608:6:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14719,
+                "mutability": "mutable",
+                "name": "status",
+                "nameLocation": "650:6:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "644:12:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 14718,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "644:5:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14721,
+                "mutability": "mutable",
+                "name": "corpAct",
+                "nameLocation": "672:7:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "666:13:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 14720,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "666:5:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14723,
+                "mutability": "mutable",
+                "name": "timestamp",
+                "nameLocation": "697:9:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14724,
+                "src": "690:16:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint64",
+                  "typeString": "uint64"
+                },
+                "typeName": {
+                  "id": 14722,
+                  "name": "uint64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "690:6:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "PriceAttestation",
+            "nameLocation": "296:16:86",
+            "nodeType": "StructDefinition",
+            "scope": 14734,
+            "src": "289:424:86",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "PythStructs.UpgradeContract",
+            "id": 14733,
+            "members": [
+              {
+                "constant": false,
+                "id": 14726,
+                "mutability": "mutable",
+                "name": "module",
+                "nameLocation": "760:6:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14733,
+                "src": "752:14:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 14725,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "752:7:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14728,
+                "mutability": "mutable",
+                "name": "action",
+                "nameLocation": "782:6:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14733,
+                "src": "776:12:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 14727,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "776:5:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14730,
+                "mutability": "mutable",
+                "name": "chain",
+                "nameLocation": "805:5:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14733,
+                "src": "798:12:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint16",
+                  "typeString": "uint16"
+                },
+                "typeName": {
+                  "id": 14729,
+                  "name": "uint16",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "798:6:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint16",
+                    "typeString": "uint16"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14732,
+                "mutability": "mutable",
+                "name": "newContract",
+                "nameLocation": "829:11:86",
+                "nodeType": "VariableDeclaration",
+                "scope": 14733,
+                "src": "821:19:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 14731,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "821:7:86",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "UpgradeContract",
+            "nameLocation": "726:15:86",
+            "nodeType": "StructDefinition",
+            "scope": 14734,
+            "src": "719:128:86",
+            "visibility": "public"
+          }
+        ],
+        "scope": 14735,
+        "src": "134:715:86",
+        "usedErrors": []
+      }
+    ],
+    "src": "63:786:86"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.4+commit.c7e474f2.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.1",
+  "updatedAt": "2022-01-26T09:33:50.738Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

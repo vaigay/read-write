@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.0.0",
+    "caver-js": "^1.6.6",
+    "dotenv": "^10.0.0",
+    "truffle-contract": "^4.0.31",
+    "truffle-hdwallet-provider-klaytn": "^1.4.2",
+    "web3-utils": "1.0.0-beta.52"
+  }
+}
